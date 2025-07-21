@@ -1,0 +1,51 @@
+idClient,name,surname,email,birthDate,phoneNumber,licenseNumber,address
+1,Martin,Thomas,thomas.martin@email.com,1985-06-12,0612345678,L-12345-67890,15 Rue des Lilas, 75001 Paris
+2,Dubois,Marie,marie.dubois@email.com,1990-03-25,0623456789,L-23456-78901,27 Avenue Victor Hugo, 69002 Lyon
+3,Bernard,Sophie,sophie.bernard@email.com,1978-11-08,0634567890,L-34567-89012,8 Rue Gambetta, 33000 Bordeaux
+4,Petit,Nicolas,nicolas.petit@email.com,1982-09-14,0645678901,L-45678-90123,42 Boulevard Saint-Michel, 75005 Paris
+5,Robert,Camille,camille.robert@email.com,1995-07-30,0656789012,L-56789-01234,3 Place Bellecour, 69002 Lyon
+6,Richard,Lucas,lucas.richard@email.com,1987-04-17,0667890123,L-67890-12345,19 Rue du Faubourg Saint-Antoine, 75011 Paris
+7,Durand,Emma,emma.durand@email.com,1992-01-05,0678901234,L-78901-23456,56 Cours Mirabeau, 13100 Aix-en-Provence
+8,Moreau,Louis,louis.moreau@email.com,1980-12-20,0689012345,L-89012-34567,11 Rue de la République, 59000 Lille
+9,Simon,Léa,lea.simon@email.com,1993-08-03,0690123456,L-90123-45678,24 Avenue des Champs-Élysées, 75008 Paris
+10,Laurent,Gabriel,gabriel.laurent@email.com,1975-05-22,0601234567,L-01234-56789,7 Place des Terreaux, 69001 Lyon
+11,Michel,Alice,alice.michel@email.com,1988-02-10,0712345678,L-12345-67891,31 Rue de la Paix, 44000 Nantes
+12,Lefebvre,Arthur,arthur.lefebvre@email.com,1997-09-27,0723456789,L-23456-78902,14 Avenue Foch, 57000 Metz
+13,Leroy,Chloé,chloe.leroy@email.com,1983-07-15,0734567890,L-34567-89013,22 Rue du Maréchal Joffre, 06000 Nice
+14,Roux,Hugo,hugo.roux@email.com,1991-04-02,0745678901,L-45678-90124,9 Quai des Chartrons, 33000 Bordeaux
+15,David,Jade,jade.david@email.com,1979-11-18,0756789012,L-56789-01235,48 Boulevard de la Liberté, 35000 Rennes
+16,Bertrand,Maxime,maxime.bertrand@email.com,1986-08-05,0767890123,L-67890-12346,16 Rue Sainte-Catherine, 33000 Bordeaux
+17,Morel,Louise,louise.morel@email.com,1994-05-23,0778901234,L-78901-23457,33 Avenue Jean Médecin, 06000 Nice
+18,Fournier,Adam,adam.fournier@email.com,1981-02-09,0789012345,L-89012-34568,5 Place Stanislas, 54000 Nancy
+19,Girard,Inès,ines.girard@email.com,1996-10-26,0790123456,L-90123-45679,28 Rue Mouffetard, 75005 Paris
+20,Bonnet,Raphaël,raphael.bonnet@email.com,1977-07-13,0801234567,L-01234-56790,12 Avenue de Wagram, 75017 Paris
+21,Dupont,Lina,lina.dupont@email.com,1989-03-30,0612341234,L-12345-67892,37 Boulevard des Capucines, 75002 Paris
+22,Lambert,Liam,liam.lambert@email.com,1998-01-17,0623452345,L-23456-78903,2 Rue de la Monnaie, 59000 Lille
+23,Fontaine,Eva,eva.fontaine@email.com,1984-09-04,0634563456,L-34567-89014,25 Avenue Alsace-Lorraine, 38000 Grenoble
+24,Rousseau,Ethan,ethan.rousseau@email.com,1990-06-21,0645674567,L-45678-90125,18 Rue d'Antibes, 06400 Cannes
+25,Vincent,Sarah,sarah.vincent@email.com,1976-04-08,0656785678,L-56789-01236,41 Rue des Lices, 13100 Aix-en-Provence
+26,Muller,Noah,noah.muller@email.com,1987-01-25,0667896789,L-67890-12347,10 Rue du Gros-Horloge, 76000 Rouen
+27,Faure,Anna,anna.faure@email.com,1995-10-12,0678907890,L-78901-23458,23 Avenue Carnot, 69002 Lyon
+28,Andre,Jules,jules.andre@email.com,1982-07-29,0689018901,L-89012-34569,6 Rue Émile Zola, 35000 Rennes
+29,Mercier,Manon,manon.mercier@email.com,1993-04-16,0690129012,L-90123-45680,34 Rue Crébillon, 44000 Nantes
+30,Blanc,Paul,paul.blanc@email.com,1974-12-03,0601230123,L-01234-56791,13 Rue Grande, 84000 Avignon
+31,Guerin,Clara,clara.guerin@email.com,1988-08-20,0712340123,L-12345-67893,29 Boulevard du Montparnasse, 75006 Paris
+32,Boyer,Mathis,mathis.boyer@email.com,1997-05-07,0723451234,L-23456-78904,4 Rue du Palais Gallien, 33000 Bordeaux
+33,Garnier,Léna,lena.garnier@email.com,1983-02-24,0734562345,L-34567-89015,26 Rue de la Liberté, 21000 Dijon
+34,Chevalier,Victor,victor.chevalier@email.com,1991-11-11,0745673456,L-45678-90126,17 Avenue des Gobelins, 75013 Paris
+35,Francois,Margot,margot.francois@email.com,1979-08-28,0756784567,L-56789-01237,32 Rue du Docteur Zamenhof, 44200 Nantes
+36,Legrand,Tom,tom.legrand@email.com,1986-06-15,0767895678,L-67890-12348,9 Place du Commerce, 44000 Nantes
+37,Gauthier,Zoé,zoe.gauthier@email.com,1994-03-02,0778906789,L-78901-23459,21 Rue Nationale, 59000 Lille
+38,Garcia,Théo,theo.garcia@email.com,1981-12-19,0789017890,L-89012-34570,40 Rue Saint-Ferréol, 13001 Marseille
+39,Perrin,Mia,mia.perrin@email.com,1996-09-06,0790128901,L-90123-45681,7 Rue de la Mésange, 67000 Strasbourg
+40,Robin,Mathéo,matheo.robin@email.com,1977-06-23,0801239012,L-01234-56792,20 Avenue Pierre Larousse, 92240 Malakoff
+41,Clément,Juliette,juliette.clement@email.com,1989-04-10,0612342345,L-12345-67894,36 Rue des Martyrs, 75009 Paris
+42,Morin,Nathan,nathan.morin@email.com,1998-01-27,0623453456,L-23456-78905,1 Cours Julien, 13006 Marseille
+43,Nicolas,Lou,lou.nicolas@email.com,1984-10-14,0634564567,L-34567-89016,24 Rue de la Pompe, 75016 Paris
+44,Henry,Alexis,alexis.henry@email.com,1990-07-01,0645675678,L-45678-90127,11 Boulevard Dugommier, 13001 Marseille
+45,Roussel,Lola,lola.roussel@email.com,1976-03-18,0656786789,L-56789-01238,30 Rue des Carmes, 45000 Orléans
+46,Mathieu,Sacha,sacha.mathieu@email.com,1987-12-05,0667897890,L-67890-12349,8 Place de l'Horloge, 84000 Avignon
+47,Gautier,Lucie,lucie.gautier@email.com,1995-09-22,0678908901,L-78901-23460,19 Rue de la Marne, 56100 Lorient
+48,Masson,Nolan,nolan.masson@email.com,1982-06-09,0689019012,L-89012-34571,5 Boulevard Louis Blanc, 34000 Montpellier
+49,Denis,Alicia,alicia.denis@email.com,1993-03-26,0690120123,L-90123-45682,27 Rue des Dames, 75017 Paris
+50,Duval,Romain,romain.duval@email.com,1975-01-13,0601231234,L-01234-56793,14 Avenue de la Grande Armée, 75016 Paris

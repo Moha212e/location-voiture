@@ -1,0 +1,2 @@
+Main-Class: org.example.Main
+Class-Path: flatlaf-3.0.jar

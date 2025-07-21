@@ -1,0 +1,96 @@
+QUESTIONS POUR L'EXAMEN DE LABORATOIRE - PROJET LOCADRIVE
+=======================================================
+
+ARCHITECTURE MVC ET GESTION DES ÉVÉNEMENTS
+------------------------------------------
+1. Expliquez en détail l'architecture MVC de votre application LocaDrive. Quel rôle joue chaque composant (Modèle, Vue, Contrôleur) ?
+
+2. Comment avez-vous implémenté le pattern Observer entre la vue et le contrôleur ? Montrez des exemples de code.
+
+3. Dans votre classe Controller, comment avez-vous géré les différents événements de l'interface utilisateur ? Expliquez le fonctionnement de la méthode actionPerformed.
+
+4. Démontrez avec un exemple concret (par exemple l'ajout d'une voiture) comment les trois couches de votre application interagissent, du clic sur un bouton jusqu'à la persistance des données.
+
+5. Comment avez-vous structuré votre contrôleur pour faciliter l'ajout de nouvelles fonctionnalités ? Pourquoi avez-vous choisi cette approche ?
+
+6. Expliquez comment vous avez géré la communication entre le contrôleur et la vue lors de la mise à jour des tables de données.
+
+7. Quelles stratégies avez-vous mises en place pour éviter le couplage fort entre les différentes couches de votre application ?
+
+8. Comment avez-vous géré les erreurs et les exceptions dans votre contrôleur ? Donnez des exemples concrets.
+
+PRINCIPES SOLID
+--------------
+9. Identifiez et expliquez au moins trois exemples d'application des principes SOLID dans votre code.
+
+10. Votre interface DataAccessLayer illustre quel(s) principe(s) SOLID ? Expliquez pourquoi et quels avantages cela apporte à votre application.
+
+11. Comment le principe de substitution de Liskov est-il respecté dans votre hiérarchie de classes ? Donnez un exemple concret.
+
+12. Comment avez-vous appliqué le principe de responsabilité unique (SRP) dans votre contrôleur ? Pourquoi avez-vous choisi de séparer les méthodes de gestion d'événements ?
+
+13. Expliquez comment le principe d'ouverture/fermeture (OCP) est respecté dans votre application. Donnez un exemple concret.
+
+14. Comment avez-vous utilisé le principe d'inversion de dépendance (DIP) dans votre application ? Quel avantage cela apporte-t-il ?
+
+PERSISTANCE DES DONNÉES
+----------------------
+15. Expliquez en détail comment vous avez implémenté la sérialisation des objets dans votre classe DAOLocation. Quelles méthodes sont utilisées pour sauvegarder et charger les données ?
+
+16. Pourquoi avez-vous choisi la sérialisation Java pour la persistance des données plutôt qu'une autre approche ? Quels sont les avantages et inconvénients de ce choix ?
+
+17. Décrivez le processus de chargement des données au démarrage de l'application. Comment gérez-vous les dépendances entre les différentes entités lors de ce chargement ?
+
+18. Comment avez-vous testé les opérations CRUD dans vos tests unitaires ? Montrez un exemple de test pour l'ajout et la suppression d'une entité.
+
+19. Expliquez comment vous avez géré les identifiants uniques pour chaque entité. Pourquoi avez-vous choisi cette approche ?
+
+20. Comment assurez-vous l'intégrité des données lors de la désérialisation ? Quelles précautions avez-vous prises ?
+
+21. Expliquez comment vous avez géré les relations entre les entités (par exemple, entre Reservation, Client et Car) dans vos fichiers sérialisés.
+
+GESTION DES FICHIERS ET TEMPLATE METHOD
+--------------------------------------
+22. Expliquez comment vous avez implémenté la gestion des fichiers properties pour l'authentification des utilisateurs. Comment les mots de passe sont-ils stockés et vérifiés ?
+
+23. Démontrez comment vous avez appliqué le pattern "Template Method" pour l'authentification. Quels sont les avantages de cette approche ?
+
+24. Comment avez-vous géré l'importation et l'exportation de données depuis/vers des fichiers CSV ? Quelles classes Java avez-vous utilisées pour cela ?
+
+25. Expliquez la structure de vos fichiers sérialisés. Comment assurez-vous la compatibilité lors des mises à jour de votre application ?
+
+26. Décrivez les méthodes que vous avez implémentées dans votre classe LoginTemplate. Comment cette classe abstraite facilite-t-elle l'ajout de nouvelles méthodes d'authentification ?
+
+27. Quelles mesures avez-vous prises pour sécuriser les informations sensibles dans vos fichiers properties ?
+
+28. Comment avez-vous géré les erreurs lors de la lecture et de l'écriture des fichiers ? Montrez des exemples de code.
+
+UTILISATION DE LIBRAIRIES EXTERNES ET CRÉATION DE JAR
+---------------------------------------------------
+29. Pourquoi avez-vous choisi d'utiliser la bibliothèque FlatLaf dans votre projet ? Comment l'avez-vous intégrée et configurée ?
+
+30. Expliquez les modifications que vous avez apportées au fichier pom.xml pour intégrer FlatLaf et créer un JAR exécutable.
+
+31. Quels défis avez-vous rencontrés lors de la création du JAR exécutable ? Comment les avez-vous résolus ?
+
+32. Avez-vous testé votre JAR sur un système d'exploitation différent ? Quelles différences avez-vous observées et comment les avez-vous gérées ?
+
+33. Comment avez-vous configuré le plugin Maven Shade dans votre pom.xml ? Pourquoi avez-vous choisi cette configuration particulière ?
+
+QUESTIONS PRATIQUES SUR LE CODE
+------------------------------
+34. Expliquez le fonctionnement de la méthode loadData() dans votre classe DAOLocation. Pourquoi chargez-vous les entités dans un ordre spécifique ?
+
+35. Montrez comment vous avez implémenté la gestion des statuts de contrat à l'aide de l'énumération StatutContrat. Comment ces statuts sont-ils utilisés dans l'application ?
+
+36. Dans votre classe ModifyClientForm, expliquez comment vous avez géré la validation des données avant de les sauvegarder. Pourquoi cette validation est-elle importante ?
+
+37. Comment avez-vous implémenté le verrouillage de l'interface utilisateur avant l'authentification ? Montrez le code concerné.
+
+QUESTIONS DE RÉFLEXION
+---------------------
+38. Si vous deviez refactoriser votre code, quelles parties amélioreriez-vous en priorité et pourquoi ?
+
+39. Comment pourriez-vous étendre votre application pour utiliser une base de données relationnelle au lieu de fichiers sérialisés ? Quelles modifications seraient nécessaires dans votre architecture ?
+
+40. Quels aspects de la programmation orientée objet vous ont semblé les plus utiles dans ce projet ? Pourquoi ?

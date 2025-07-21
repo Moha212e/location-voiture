@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: org.example.Main
+Class-Path: flatlaf-3.0.jar
+Created-By: 24 (Oracle Corporation)

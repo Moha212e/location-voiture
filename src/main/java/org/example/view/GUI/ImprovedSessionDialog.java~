@@ -1,0 +1,290 @@
+package org.example.view.GUI;
+
+import org.example.controller.Controller;
+import org.example.controller.ControllerActions;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+/**
+ * Dialogue amélioré pour la connexion et l'inscription avec possibilité de basculer entre les deux modes.
+ */
+public class ImprovedSessionDialog extends JDialog {
+    private JTextField emailField;
+    private JPasswordField passwordField;
+    private JPasswordField confirmPasswordField;
+    private JButton actionButton; // Bouton principal (connexion ou inscription selon le mode)
+    private JLabel switchModeLabel; // Lien pour basculer entre les modes
+    private Controller controller;
+    private JPanel confirmPasswordPanel; // Panel contenant le champ de confirmation de mot de passe
+    private JLabel titleLabel; // Titre du dialogue
+    
+    // Constantes pour les couleurs et polices
+    private final Color PRIMARY_COLOR = new Color(70, 130, 180); // Steel Blue
+    private final Color SECONDARY_COLOR = new Color(240, 248, 255); // Alice Blue
+    private final Color LINK_COLOR = new Color(204, 0, 0); // Bleu lien
+    private final Font LABEL_FONT = new Font("Arial", Font.BOLD, 12);
+    private final Font FIELD_FONT = new Font("Arial", Font.PLAIN, 12);
+    private final Font LINK_FONT = new Font("Arial", Font.PLAIN, 12);
+    private final int PADDING = 20;
+    
+    // Mode actuel du dialogue
+    private boolean isLoginMode = true;
+
+    /**
+     * Constructeur du dialogue amélioré.
+     * @param parent Fenêtre parente
+     * @param controller Contrôleur pour gérer les actions
+     */
+    public ImprovedSessionDialog(JFrame parent, Controller controller) {
+        super(parent, "Accès LocaDrive", true);
+        this.controller = controller;
+        
+        setLayout(new BorderLayout());
+        
+        // Panel principal avec un fond coloré
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBackground(SECONDARY_COLOR);
+        mainPanel.setBorder(new EmptyBorder(PADDING, PADDING, PADDING, PADDING));
+        
+        // Titre en haut
+        titleLabel = new JLabel("Connexion", JLabel.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 22));
+        titleLabel.setForeground(PRIMARY_COLOR);
+        titleLabel.setBorder(new EmptyBorder(0, 0, PADDING, 0));
+        mainPanel.add(titleLabel, BorderLayout.NORTH);
+
+        // Panel du formulaire avec espacement amélioré
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
+        formPanel.setBackground(SECONDARY_COLOR);
+        formPanel.setBorder(new EmptyBorder(PADDING, PADDING, PADDING, PADDING));
+
+        // Email field avec style amélioré
+        JPanel emailPanel = new JPanel(new BorderLayout(5, 0));
+        emailPanel.setBackground(SECONDARY_COLOR);
+        JLabel emailLabel = new JLabel("Email:");
+        emailLabel.setFont(LABEL_FONT);
+        emailLabel.setForeground(PRIMARY_COLOR);
+        emailField = new JTextField();
+        emailField.setFont(FIELD_FONT);
+        emailField.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(PRIMARY_COLOR, 1, true),
+                BorderFactory.createEmptyBorder(8, 10, 8, 10)));
+        emailPanel.add(emailLabel, BorderLayout.NORTH);
+        emailPanel.add(emailField, BorderLayout.CENTER);
+        
+        // Ajouter un peu d'espace après le panel
+        emailPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        formPanel.add(emailPanel);
+
+        // Password field avec style amélioré
+        JPanel passwordPanel = new JPanel(new BorderLayout(5, 0));
+        passwordPanel.setBackground(SECONDARY_COLOR);
+        JLabel passwordLabel = new JLabel("Mot de passe:");
+        passwordLabel.setFont(LABEL_FONT);
+        passwordLabel.setForeground(PRIMARY_COLOR);
+        passwordField = new JPasswordField();
+        passwordField.setFont(FIELD_FONT);
+        passwordField.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(PRIMARY_COLOR, 1, true),
+                BorderFactory.createEmptyBorder(8, 10, 8, 10)));
+        passwordPanel.add(passwordLabel, BorderLayout.NORTH);
+        passwordPanel.add(passwordField, BorderLayout.CENTER);
+        
+        // Ajouter un peu d'espace après le panel
+        passwordPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        formPanel.add(passwordPanel);
+
+        // Confirm Password field avec style amélioré
+        confirmPasswordPanel = new JPanel(new BorderLayout(5, 0));
+        confirmPasswordPanel.setBackground(SECONDARY_COLOR);
+        JLabel confirmLabel = new JLabel("Confirmer le mot de passe:");
+        confirmLabel.setFont(LABEL_FONT);
+        confirmLabel.setForeground(PRIMARY_COLOR);
+        confirmPasswordField = new JPasswordField();
+        confirmPasswordField.setFont(FIELD_FONT);
+        confirmPasswordField.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(PRIMARY_COLOR, 1, true),
+                BorderFactory.createEmptyBorder(8, 10, 8, 10)));
+        confirmPasswordPanel.add(confirmLabel, BorderLayout.NORTH);
+        confirmPasswordPanel.add(confirmPasswordField, BorderLayout.CENTER);
+        
+        // Ajouter un peu d'espace après le panel
+        confirmPasswordPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        
+        // Ne pas afficher le champ de confirmation en mode connexion
+        confirmPasswordPanel.setVisible(false);
+        formPanel.add(confirmPasswordPanel);
+
+        mainPanel.add(formPanel, BorderLayout.CENTER);
+
+        // Panel pour le bouton d'action et le lien pour changer de mode
+        JPanel actionPanel = new JPanel();
+        actionPanel.setLayout(new BoxLayout(actionPanel, BoxLayout.Y_AXIS));
+        actionPanel.setBackground(SECONDARY_COLOR);
+        actionPanel.setBorder(new EmptyBorder(0, PADDING, PADDING, PADDING));
+        
+        // Bouton d'action (connexion ou inscription)
+        actionButton = new JButton("Se connecter");
+        actionButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        styleButton(actionButton, ControllerActions.LOGIN);
+        
+        // Panel pour centrer le bouton
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.setBackground(SECONDARY_COLOR);
+        buttonPanel.add(actionButton);
+        actionPanel.add(buttonPanel);
+        
+        // Ajouter un espace entre le bouton et le lien
+        actionPanel.add(Box.createVerticalStrut(15));
+        
+        // Lien pour basculer entre connexion et inscription
+        switchModeLabel = new JLabel("Pas encore inscrit ? Créer un compte", JLabel.CENTER);
+        switchModeLabel.setFont(LINK_FONT);
+        switchModeLabel.setForeground(LINK_COLOR);
+        switchModeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        switchModeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        // Ajouter un effet de survol sur le lien
+        switchModeLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                switchModeLabel.setText("<html><u>" + (isLoginMode ? 
+                        "Pas encore inscrit ? Créer un compte" : 
+                        "Déjà inscrit ? Se connecter") + "</u></html>");
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e) {
+                switchModeLabel.setText(isLoginMode ? 
+                        "Pas encore inscrit ? Créer un compte" : 
+                        "Déjà inscrit ? Se connecter");
+            }
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                toggleMode();
+            }
+        });
+        
+        // Panel pour centrer le lien
+        JPanel linkPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        linkPanel.setBackground(SECONDARY_COLOR);
+        linkPanel.add(switchModeLabel);
+        actionPanel.add(linkPanel);
+
+        mainPanel.add(actionPanel, BorderLayout.SOUTH);
+        add(mainPanel);
+
+        setSize(400, 450);
+        setLocationRelativeTo(parent);
+        setResizable(false);
+    }
+    
+    /**
+     * Bascule entre les modes connexion et inscription.
+     */
+    private void toggleMode() {
+        isLoginMode = !isLoginMode;
+        
+        if (isLoginMode) {
+            // Mode connexion
+            titleLabel.setText("Connexion");
+            confirmPasswordPanel.setVisible(false);
+            actionButton.setText("Se connecter");
+            actionButton.setActionCommand(ControllerActions.LOGIN);
+            switchModeLabel.setText("Pas encore inscrit ? Créer un compte");
+        } else {
+            // Mode inscription
+            titleLabel.setText("Inscription");
+            confirmPasswordPanel.setVisible(true);
+            actionButton.setText("S'inscrire");
+            actionButton.setActionCommand(ControllerActions.REGISTER);
+            switchModeLabel.setText("Déjà inscrit ? Se connecter");
+        }
+        
+        // Ajuster la taille du dialogue si nécessaire
+        pack();
+        setSize(400, isLoginMode ? 400 : 450);
+        setLocationRelativeTo(getParent());
+    }
+    
+    /**
+     * Style les boutons avec un look moderne.
+     */
+    private void styleButton(JButton button, String actionCommand) {
+        button.setActionCommand(actionCommand);
+        button.addActionListener(controller);
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setForeground(Color.WHITE);
+        button.setBackground(PRIMARY_COLOR);
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createRaisedBevelBorder(),
+                BorderFactory.createEmptyBorder(10, 20, 10, 20)));
+        
+        // Effet de survol
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+                button.setBackground(new Color(100, 149, 237)); // Cornflower Blue
+            }
+
+            @Override
+            public void mouseExited(MouseEvent evt) {
+                button.setBackground(PRIMARY_COLOR);
+            }
+        });
+    }
+    
+    /**
+     * Récupère l'email saisi.
+     */
+    public String getEmail() {
+        return emailField.getText();
+    }
+    
+    /**
+     * Récupère le mot de passe saisi.
+     */
+    public String getPassword() {
+        return new String(passwordField.getPassword());
+    }
+    
+    /**
+     * Récupère la confirmation du mot de passe.
+     */
+    public String getConfirmPassword() {
+        return new String(confirmPasswordField.getPassword());
+    }
+    
+    /**
+     * Affiche le dialogue.
+     */
+    public void showDialog() {
+        // Réinitialiser les champs
+        emailField.setText("");
+        passwordField.setText("");
+        confirmPasswordField.setText("");
+        
+        // Revenir au mode connexion par défaut
+        if (!isLoginMode) {
+            toggleMode();
+        }
+        
+        setVisible(true);
+    }
+    
+    /**
+     * Vérifie si le dialogue est en mode connexion.
+     */
+    public boolean isLoginMode() {
+        return isLoginMode;
+    }
+}
